@@ -1,0 +1,24 @@
+<launch>
+  <!-- Start the serial node from rosserial_arduino with specified port 
+  <node name="serial_node" pkg="rosserial_arduino" type="serial_node.py" output="screen">
+    <param name="port" value="/dev/ttyACM0"/>
+  </node>  -->
+
+  <!-- Start the move_robot.py node from robonetics_setup -->
+  <node name="move_robot" pkg="robonetics_setup" type="move_robot.py" output="screen">
+  </node>
+
+  <!-- Start the obstacle.py node from robonetics_setup -->
+  <node name="obstacle" pkg="robonetics_setup" type="obstacle.py" output="screen">
+  </node>
+
+  <!-- Start the decision.py node from robonetics_setup -->
+  <node name="decision" pkg="robonetics_setup" type="decision.py" output="screen">
+  </node>
+
+  <!-- Include the YDLidar ROS launch file -->
+  <include file="$(find ydlidar_ros)/launch/X4.launch"/>
+  
+</launch>
+
+
